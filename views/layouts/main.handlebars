@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- loadingbar js -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/loading-bar.css"/>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicon/site.webmanifest">
+
+    <!-- our css -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>KGC Sandwiches</title>
+</head>
+
+<body id="body-main" class="background-one">
+    <header>
+        <nav class="navbar">
+            <div class="container">
+
+                <div class="col-md d-flex justify-content-end">
+                    <a href="/menu" class="btn btn-dark margin-five">Menu</a>
+                    {{#if loggedIn}}
+                    <button id="logout" class="btn btn-dark margin-five">Logout</button>
+                 {{else}}
+                 <a href="/login" class="btn btn-dark margin-five">Login</a>
+                 {{/if}}
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="grid-container">
+        {{{ body }}}
+    </main>
+
+    <footer id="footer" class="navbar justify-content-center">
+        <div class="container flex row justify-content-center">
+            <div class="col-md d-flex justify-content-start">
+                Located at: <br>
+                Milwaukee, WI. 53212
+            </div>
+            <div class="col-md">
+                <h6>
+                    Thanks for visiting!
+                </h6>
+            </div>
+            <div class="col-md d-flex justify-content-end">                
+                <div class="col-md">
+                    <h6>Contact Us</h6>
+                    <a href="https://google.com" target="_blank">Julian Wiley</a><br>
+                    <a href="https://yahoo.com" target="_blank">Keely York</a><br>
+                    <a href="https://msn.com" target="_blank">Cristy Niemic</a>
+                </div>
+            </div>
+        </div>
+    </footer>
