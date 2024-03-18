@@ -1,5 +1,5 @@
-import Sequelize from 'sequelize';
-import dotenv from 'dotenv';
+const Sequelize = require('sequelize');
+const dotenv = require('dotenv');
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -30,4 +30,5 @@ if (process.env.JAWSDB_URL) {
     });
 }
 
-export default sequelize;
+module.exports = sequelize;
+

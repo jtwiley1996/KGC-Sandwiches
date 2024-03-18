@@ -1,10 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection'); // Import sequelize
 
+class Product extends Model {} // Capitalize class name
 
-class product extends Model {}
-
-
-product.init(
+Product.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -18,7 +17,7 @@ product.init(
     }
   },
   {
-    sequelize,
+    sequelize, // Pass sequelize instance
     timestamps: false,
     freezeTableName: true,
     underscored: true,
@@ -26,4 +25,4 @@ product.init(
   }
 );
 
-module.exports = product;
+module.exports = Product; // Capitalize module.exports
