@@ -21,11 +21,12 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'No order with this id!' });
       return;
     }
-    res.status(200).json (orderData);
+    res.status(200).json(orderData); // Removed space after .json
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
 
