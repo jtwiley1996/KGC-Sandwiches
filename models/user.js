@@ -1,9 +1,7 @@
-// Import necessary modules
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/connection';
-import bcrypt from 'bcrypt';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+const bcrypt = require('bcrypt');
 
-// Define User model
 class User extends Model {
   // Method to check password
   checkPassword(loginPw) {
@@ -11,9 +9,7 @@ class User extends Model {
   }
 }
 
-// Define table columns and configuration
 User.init(
-  // Table column definitions
   {
     id: {
       type: DataTypes.INTEGER,
@@ -65,9 +61,7 @@ User.init(
       }
     },
   },
-
   {
-    // Hooks for password hashing
     hooks: {
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
@@ -78,14 +72,12 @@ User.init(
         return updatedUserData;
       }
     },
-    // Table configurations
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'user' // Changed modelName from 'customer' to 'user' for consistency
+    modelName: 'User'
   }
 );
 
-// Export User model
-export default User;
+module.exports = User;

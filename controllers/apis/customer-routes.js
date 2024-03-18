@@ -51,15 +51,14 @@ router.get('/:id', (req, res) => {
 // create customer
 /* expects
 {
-    "email": "reg.fancy@gmail.com",
-    "password": "test1234",
-    "first_name": "Reginald",
-    "last_name": "Fancypants",
-    "street_address": "123 Easy Street",
-    "street_address2": "Suite A",
-    "city_address": "Funkytown",
-    "state_address": "North Carolina",
-    "zip_address": "12345"
+    "email": "john@example.com",
+    "password": "password123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "street_address": "123 Main St",
+    "city_address": "Anytown",
+    "state_address": "CA",
+    "zip_address": 12345
 }
 */
 router.post('/', (req, res) => {
@@ -69,7 +68,6 @@ router.post('/', (req, res) => {
         first_name: req.body.first_name,
         last_name: req.body.last_name,
         street_address: req.body.street_address,
-        street_address2: req.body.street_address2,
         city_address: req.body.city_address,
         state_address: req.body.state_address,
         zip_address: req.body.zip_address
@@ -91,7 +89,7 @@ router.post('/', (req, res) => {
 
 // post login - session save
 router.post('/login', (req, res) => {
-    // expects {"email": "reg.fancy@gmail.com", "password": "test1234"}
+    // expects {"email": "john@example.com", "password": "password123"}
     Customer.findOne({
         where: {
             email: req.body.email
@@ -130,7 +128,7 @@ router.post('/logout', (req, res) => {
 });
 
 // update customer info - email, password
-// expects {"email": "reg.fancy@gmail.com", "password": "test1234"}
+// expects {"email": "john@example.com", "password": "password123"}
 router.put('/:id', (req, res) => {
     Customer.update(
         {
