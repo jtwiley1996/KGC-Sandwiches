@@ -18,5 +18,6 @@ User.belongsToMany(Product, {
   as: 'confirmed_orders'
 });
 
-module.exports = { order, product, user };
+module.exports = { Order, Product, User };
+
 

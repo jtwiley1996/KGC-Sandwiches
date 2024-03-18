@@ -1,22 +1,33 @@
-// Import the sequelize constructor from the library
 import Sequelize from 'sequelize';
 import dotenv from 'dotenv';
 
-// Load environment variables from .env file
-dotenv.config();
+dotenv.config(); // Load environment variables from .env file
 
-// Create connection to our database, pass in your MySQL information for username and password
 let sequelize;
 
 if (process.env.JAWSDB_URL) {
+    // If using JawsDB (Heroku MySQL add-on)
     sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
+    // If using local MySQL database
     sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
-        host: 'localhost',
+        host: process.env.DB_HOST || 'localhost', // Added default value for host
         dialect: 'mysql',
-        port: 3306
+        port: process.env.DB_PORT || 3306, // Added default value for port
+        dialectOptions: {
+            // Additional options specific to your database dialect
+            // For example:
+            // charset: 'utf8mb4',
+            // collate: 'utf8mb4_unicode_ci'
+        },
+        pool: {
+            // Connection pool configuration
+            max: 5, // Maximum number of connections in the pool
+            min: 0, // Minimum number of connections in the pool
+            acquire: 30000, // Maximum time, in milliseconds, that pool will try to get connection before throwing error
+            idle: 10000 // Maximum time, in milliseconds, that a connection can be idle before being released
+        }
     });
 }
 
-// Export the Sequelize instance
 export default sequelize;
