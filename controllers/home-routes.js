@@ -1,21 +1,17 @@
 const router = require('express').Router();
-const { Review, Customer, Product, Order, OrderProduct } = require('../models');
+const { User, Product, Order, } = require('../models');
 
 // Route to homepage view
 router.get('/', async (req, res) => {
     try {
-        const reviewData = await Review.findAll({
-            attributes: ['id', 'review_text', 'created_at'],
-            include: [{
-                model: Customer,
-                attributes: ['first_name']
-            }]
+        const productData = await Product.findAll({
+            attributes: ['id', 'product_name'],
         });
         
-        const reviews = reviewData.map(review => review.get({ plain: true }));
+        const products = productData.map(product => product.get({ plain: true }));
         
         res.render('home', {
-            reviews,
+            products,
             loggedIn: req.session.loggedIn
         });
     } catch (err) {
