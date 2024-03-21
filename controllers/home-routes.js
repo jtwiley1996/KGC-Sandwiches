@@ -45,16 +45,16 @@ router.get('/menu', (req, res) => {
     });
 });
 
-// Route to pizza menu view
-router.get('/pizza', (req, res) => {
-    res.render('pizza', {
+// Route to sandwich menu view
+router.get('/sandwich', (req, res) => {
+    res.render('sandwich', {
         loggedIn: req.session.loggedIn
     });
 });
 
-// Route to pie menu view
-router.get('/pie', (req, res) => {
-    res.render('pie', {
+// Route to drink menu view
+router.get('/drinks', (req, res) => {
+    res.render('drinks', {
         loggedIn: req.session.loggedIn
     });
 });
