@@ -89,6 +89,8 @@
 
   .card {
     margin: 20px;
+    background-color: #40403f;
+    color: white;
   }
   
   /* Buttons */
