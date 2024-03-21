@@ -1,0 +1,144 @@
+<script>
+    document.getElementById("body-main").classList.remove("background-one")
+    document.getElementById("body-main").classList.remove("background-two")
+    document.getElementById("body-main").classList.remove("background-three")
+    document.getElementById("body-main").classList.add("background-three")
+</script>
+
+{{#if loggedIn}}
+<div class="container">
+    <div class="ldBar w-100 label-center" data-value="33" data-aspect-ratio="none"></div>
+</div>
+{{/if}}
+
+<div class="container">
+    {{#if loggedIn}}
+    <style>
+        .product-btn {
+            pointer-events: inherit;
+        }
+    </style>
+    {{else}}
+    <style>
+        .product-btn {
+            pointer-events: none;
+        }
+    </style>
+    <div class="row justify-content-center margin-thirty">
+        <a class="btn btn-dark order-nav-btn" href="/login">Log in to order</a>
+    </div>
+    {{/if}}
+    <div class="container flex justify-content-center">
+        <div class="row no-gutters m-4">
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Ham Sandwich</h5>
+                        <p class="card-text">Price: $6.99</p>
+                        <button id="0" class="btn btn-dark product-btn">Ham Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Turkey Sandwich</h5>
+                        <p class="card-text">Price: $7.99</p>
+                        <button id="1" class="btn btn-dark product-btn">Turkey Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">BLT Sandwich</h5>
+                        <p class="card-text">Price: $8.99</p>
+                        <button id="2" class="btn btn-dark product-btn">BLT Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Grilled Cheese Sandwich</h5>
+                        <p class="card-text">Price: $5.99</p>
+                        <button id="3" class="btn btn-dark product-btn">Grilled Cheese Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Chicken Salad Sandwich</h5>
+                        <p class="card-text">Price: $7.49</p>
+                        <button id="4" class="btn btn-dark product-btn">Chicken Salad Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Roast Beef Sandwich</h5>
+                        <p class="card-text">Price: $8.49</p>
+                        <button id="5" class="btn btn-dark product-btn">Roast Beef Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Vegetarian Sandwich</h5>
+                        <p class="card-text">Price: $6.99</p>
+                        <button id="6" class="btn btn-dark product-btn">Vegetarian Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Tuna Salad Sandwich</h5>
+                        <p class="card-text">Price: $7.49</p>
+                        <button id="7" class="btn btn-dark product-btn">Tuna Salad Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Club Sandwich</h5>
+                        <p class="card-text">Price: $9.99</p>
+                        <button id="8" class="btn btn-dark product-btn">Club Sandwich</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card menu-card" style="width: 300px;">
+                    <div class="card-body">
+                        <h5 class="card-title">Egg Salad Sandwich</h5>
+                        <p class="card-text">Price: $6.49</p>
+                        <button id="9" class="btn btn-dark product-btn">Egg Salad Sandwich</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--show button if logged in, or disable status bar part for logged out-->
+    <div class="row justify-content-center margin-thirty">
+        <a class="btn btn-dark order-nav-btn pie-page-btn w-25" href="/drinks">Drinks</a>
+    </div>
+</div>
+<script>
+    // Function to handle button clicks
+    function handleButtonClick(event) {
+        const buttonId = event.target.id;
+        // Handle button click as needed
+        console.log("Button clicked: ", buttonId);
+    }
+    
+    // Add event listeners to product buttons
+    const productButtons = document.querySelectorAll('.product-btn');
+    productButtons.forEach(button => {
+        button.addEventListener('click', handleButtonClick);
+    });
+</script>
+

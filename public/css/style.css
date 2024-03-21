@@ -20,6 +20,15 @@
     background-size: cover;
   }
 
+  .background-three {
+    background-color: #8b2e00;
+    background-image: url('../images/pexels-rajesh-tp-1603898.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
 #body-main {
     min-height: 100vh;
     margin: 0;
@@ -76,6 +85,10 @@
     font-size: 70px;
     font-weight: bold;
     letter-spacing: 0.2em;
+  }
+
+  .card {
+    margin: 20px;
   }
   
   /* Buttons */
