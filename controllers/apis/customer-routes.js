@@ -90,6 +90,9 @@ router.post('/', (req, res) => {
 // post login - session save
 router.post('/login', (req, res) => {
     // expects {"email": "john@example.com", "password": "password123"}
+    console.log('Received email:', req.body.email);
+    console.log('Received password:', req.body.password);
+
     Customer.findOne({
         where: {
             email: req.body.email
